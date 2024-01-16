@@ -4,14 +4,70 @@ interface User {
   age: number;
 }
 
-// 변수에 사용하는 경우
-const seho: User = { name: 'hi', age: 100 };
+// 변수에 인터페이스 활용
+var seho: User = { 
+  name: '세호',
+  age: 33 
+};
 
-// 함수의 매개변수에 사용하는 경우
-function getUser(user: User) {
+// 함수에 인터페이스 활용
+function getUser(user: User):void {
   console.log(user);
 }
-getUser(seho);
+getUser({
+  name: '1',
+  age: 100
+});
+
+// 함수의 스펙에 인터페이스를 활용
+interface SumFunction {
+  (a: number, b: number): number
+}
+
+var sum: SumFunction;
+sum = function(a: number, b: number): number {
+  return a + b;
+}
+
+// 인덱싱
+interface StringArray {
+  [index: number]: string
+}
+
+var arr: StringArray = ['a', 'b', 'c'];
+
+// 딕셔너리 패턴
+interface StringRegexDictionary {
+  [key: string]: RegExp
+}
+
+var obj: StringRegexDictionary = {
+  // sth: /abc/,
+  cssFile: /\.css$/,
+  jsFile: /\.js$/,
+}
+// obj['cssFile'] = '/.aaa.css'
+
+Object.keys(obj).forEach(function(value){
+
+})
+
+// 확장
+interface Person {
+  name: string;
+  age: number;
+}
+
+interface Developer extends Person{
+  language: string;
+}
+
+var capt: Developer = {
+  name: 'hoyong',
+  age: 25,
+  language: 'ts',
+}
+
 
 // 함수의 전체 타입에 사용하는 경우
 // interface SumFunction {
