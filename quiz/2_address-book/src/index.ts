@@ -104,5 +104,11 @@ class AddressBook {
   /* ------------------------------------------------ */
 }
 
+var div = document.querySelector('div') as HTMLDivElement;
+if (div) {
+  div.innerText
+}
+
+
 var a = new AddressBook();
 a.findContactByPhone(10, PhoneType.home);
